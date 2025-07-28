@@ -1,65 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>BMI Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
+            margin: 50px;
+            background-color: #f0f8ff;
         }
-
         .container {
-            background: white;
+            width: 400px;
+            margin: auto;
             padding: 30px;
+            background-color: white;
             border-radius: 10px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 10px lightgray;
         }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
         input[type="number"] {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0 16px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            padding: 8px;
+            margin: 10px 0;
         }
-
         input[type="submit"] {
-            width: 100%;
-            background-color: #4CAF50;
+            padding: 10px 20px;
+            background-color: dodgerblue;
             color: white;
-            padding: 12px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
         }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            color: white;
-            font-size: 18px;
-            text-align: center;
+        h3 {
+            color: green;
         }
     </style>
 </head>
@@ -67,20 +37,16 @@
     <div class="container">
         <h2>BMI Calculator</h2>
         <form method="POST">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" name="weight" id="weight" required>
-
-            <label for="height">Height (cm):</label>
-            <input type="number" name="height" id="height" required>
-
+            <label>Weight (kg):</label>
+            <input type="number" name="weight" required><br>
+            <label>Height (cm):</label>
+            <input type="number" name="height" required><br>
             <input type="submit" value="Calculate">
         </form>
 
         {% if bmi %}
-            <div class="result" style="background-color: {{ color }};">
-                <p><strong>Your BMI:</strong> {{ bmi }}</p>
-                <p><strong>Category:</strong> {{ category }}</p>
-            </div>
+            <h3>Your BMI: {{ bmi }}</h3>
+            <p>Category: {{ category }}</p>
         {% endif %}
     </div>
 </body>
